@@ -1,0 +1,22 @@
+package stepDefinitions;
+
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import utilities.Driver;
+
+public class Hooks {
+    @Before
+    public void setUp(){
+        WebDriver driver = Driver.driverSetup("chrome");
+    }
+
+    @After
+    public void tearDown(Scenario scenario) throws InterruptedException {
+        Thread.sleep(1000);
+        Driver.closeDriver();
+    }
+}
